@@ -1,0 +1,240 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0px;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 1px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    animation: rotation 0.2s linear;
+    animation-fill-mode: forwards;
+    cursor: default;
+}
+
+.deck .card.close {
+    animation: rotationBack 0.2s linear;
+    animation-fill-mode: forwards;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.differ {
+    background: #f95b3c;
+    animation: shake 0.4s linear;
+    animation-fill-mode: forwards;
+    font-size: 33px;
+}
+
+.deck .card.match {
+    animation: pop 0.6s linear;
+    animation-fill-mode: forwards;
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    min-width: 250px;
+    margin-bottom: 1em;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .timer {
+    font-family: 'Inconsolata', monospace;
+    display: inline-block;
+    float: right;
+    padding-top: 1px;
+    padding-right: 15px;
+    font-size: 1.2em;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+.modal-container {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 15em;
+}
+
+.modal-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.win-img {
+    display: block;
+    min-height: 150px;
+}
+
+.grats-msg {
+    font-size: 1.5em;
+}
+
+.play-again-btn {
+    margin-top: 10px;
+    background-color: #02ccba;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+
+@keyframes rotation {
+  0% {
+    font-size: 0px;
+    background: #2e3d49;
+  }
+  50% {
+    font-size: 0px;
+    background: #2e3d49;
+    transform: rotateY(90deg);
+  }
+  51% {
+    font-size: 33px;
+    background: #02b3e4;
+  }
+  100% {
+    background: #02b3e4;
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    font-size: 0px;
+    background: #f95b3c;
+  }
+  50% {
+    background: #f95b3c;
+    transform: rotateY(90deg);
+  }
+  51% {
+    background: #2e3d49;
+  }
+  100% {
+    font-size: 0px;
+    background: #2e3d49;
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform-origin: bottom;
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes pop {
+  25% {
+    transform: scale(1.1, 0.8);
+  }
+  50% {
+    transform: scale(0.8, 1.1);
+  }
+  75% {
+    transform: scale(1.1, 0.8);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}

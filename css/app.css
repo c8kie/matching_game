@@ -51,6 +51,15 @@ h1 {
     margin: 0 0 3em;
 }
 
+.deck.hide {
+    animation: hideDeck 0.15s linear;
+    animation-fill-mode: forwards;
+}
+.deck.show {
+    animation: showDeck 0.15s linear;
+    animation-fill-mode: forwards;
+}
+
 .deck .card {
     height: 125px;
     width: 22%;
@@ -256,6 +265,21 @@ h1 {
   }
 }
 
+/* Restart animation */
+@keyframes hideDeck {
+  100% {
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes showDeck {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 
 /* Responsiveness for different resolutions */
 @media screen and (max-width: 720px) {

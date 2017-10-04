@@ -37,6 +37,7 @@ function restart() {
 	//reset timer
 	resetTimer();
 	//?change bg color
+	$('.deck').removeClass('hide').addClass('show');
 	currentCards.splice(0, 2);
 };
 
@@ -198,7 +199,16 @@ $('.deck').on('click', '.card', cardClicked);
 
 
 // restart listener
-$('.restart').click(restart);
+$('.restart').click(function() {
+	$('.deck').removeClass('show').addClass('hide');
+});
+
+$('.deck').on("animationend", function(event) {
+	if (event.originalEvent.animationName == 'hideDeck') {
+		restart();
+	}
+});
+
 // generate click to shuffle cards in deck
 $('.restart').click();
 //for modal popup

@@ -1,7 +1,5 @@
 $(function () {
-/*
- * Create a list that holds all of your cards
- */
+
 let cardList = $('.card');
 let movesNum = $('.moves-num');
 let moves = $('.moves');
@@ -41,14 +39,6 @@ function restart() {
 	//?change bg color
 };
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided 'shuffle' method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -65,6 +55,7 @@ function shuffle(array) {
 
 let currentCards = [];
 
+//Generate friendly looking timer string
 function getStrTimer() {
 	let minutes = Math.floor(timerSeconds / 60);
 	let seconds = timerSeconds % 60;
@@ -138,6 +129,8 @@ function updateScore() {
 
 function checkWinCondition() {
 	for (card of cardList) {
+		//If there still are cards that are not 'matched'
+		// than the game is no
 		if(!$(card).hasClass('match'))
 			return false;
 	}
@@ -163,17 +156,25 @@ function showWinPopup() {
 };
 
 function cardClicked() {
+	//Start timer only if it was at initial value
 	if (timerSeconds == -1) {
 		timerSeconds = 0;
 		timerId = setInterval(updateTimer, 1000);
 	}
 
+	//This is needed to hide cards, if there is more
+	// than two cards flipped at once; even if the
+	// animation is still playing
 	if (currentCards[1]) {
 		clearTimeout(animationTimerId);
 		hideCards();
 	}
+
+	//Get current card
 	let currCard = $(this);
+	//Handle click only if clicked card was not already shown
 	if (!(currCard.hasClass('open') || currCard.hasClass('match'))) {
+		//Function names are pretty much self-explanatory
 		showCard(currCard);
 		currentCards.push(currCard);
 		if (currentCards[1]) {
@@ -191,16 +192,7 @@ function cardClicked() {
 	}
 };
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of 'open' cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+
 $('.deck').on('click', '.card', cardClicked);
 
 

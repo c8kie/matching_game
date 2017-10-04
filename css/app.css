@@ -131,6 +131,8 @@ h1 {
     cursor: pointer;
 }
 
+/* Modal popup that shows after the game */
+
 .modal-container {
     display: none;
     width: 100%;
@@ -168,7 +170,9 @@ h1 {
     font-size: 1.5em;
 }
 
-/*Animations goes here*/
+/* Animations for cards */
+
+/* When the card is flipped */
 @keyframes rotation {
   0% {
     font-size: 0px;
@@ -189,6 +193,7 @@ h1 {
   }
 }
 
+/* When the card is flipped back */
 @keyframes rotationBack {
   0% {
     font-size: 0px;
@@ -208,6 +213,7 @@ h1 {
   }
 }
 
+/* When the guess is wrong */
 @keyframes shake {
   25% {
     transform-origin: bottom;
@@ -224,6 +230,7 @@ h1 {
   }
 }
 
+/* When the guess is right */
 @keyframes pop {
   25% {
     transform: scale(1.1, 0.8);
@@ -240,8 +247,7 @@ h1 {
 }
 
 
-/*Responsiveness for different resolutions*/
-
+/* Responsiveness for different resolutions */
 @media screen and (max-width: 720px) {
     .score-panel {
         font-size: 1.3em;
@@ -261,8 +267,8 @@ h1 {
 
 @media screen and (max-width: 430px) {
     .score-panel {
-        /*font-size: 1.3em;
-        min-width: 300px;*/
+        font-size: 1.1em;
+        min-width: 280px;
     }
     .deck {
         width: 320px;

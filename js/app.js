@@ -37,6 +37,7 @@ function restart() {
 	//reset timer
 	resetTimer();
 	//?change bg color
+	currentCards.splice(0, 2);
 };
 
 function shuffle(array) {

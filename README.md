@@ -1,6 +1,6 @@
 # Memory Game
 
-##Installation
+## Installation
 
 Installation is not required.
 

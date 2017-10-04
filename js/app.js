@@ -126,10 +126,10 @@ function updateScore() {
 			moves.text('Move');
 			break;
 		//decrease stars
-		case 24:
+		case 26:
 			$('#star3').removeClass('fa-star').addClass('fa-star-o');
 			break;
-		case 30:
+		case 36:
 			$('#star2').removeClass('fa-star').addClass('fa-star-o');
 			break;
 		default: break;

@@ -53,7 +53,7 @@ h1 {
 
 .deck .card {
     height: 125px;
-    width: 125px;
+    width: 22%;
     background: #2e3d49;
     font-size: 0px;
     color: #ffffff;
@@ -168,7 +168,7 @@ h1 {
     font-size: 1.5em;
 }
 
-
+/*Animations goes here*/
 @keyframes rotation {
   0% {
     font-size: 0px;
@@ -237,4 +237,41 @@ h1 {
   100% {
     transform: scale(0, 0);
   }
+}
+
+
+/*Responsiveness for different resolutions*/
+
+@media screen and (max-width: 720px) {
+    .score-panel {
+        font-size: 1.3em;
+        min-width: 300px;
+    }
+    .deck {
+        width: 400px;
+        min-height: 410px;
+        padding: 16px;
+    }
+
+    .deck .card {
+        height: 80px;
+        width: 22%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .score-panel {
+        /*font-size: 1.3em;
+        min-width: 300px;*/
+    }
+    .deck {
+        width: 320px;
+        min-height: 330px;
+        padding: 10px;
+    }
+
+    .deck .card {
+        height: 65px;
+        width: 22%;
+    }
 }
